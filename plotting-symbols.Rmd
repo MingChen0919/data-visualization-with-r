@@ -1,0 +1,28 @@
+---
+title: "Plotting Symbols"
+author: "Ming Chen"
+date: "6/24/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
+```
+
+The plotting symbols is controlled by the parameter **`pch`**.
+
+```{r}
+x = c(rep(1:6, times=4), 1, 2)
+y = c(rep(1:4, each=6), 5, 5)
+plot(x,y, xlim = c(0,7), ylim = c(0,7), 
+     pch=0:25, xaxt='n', yaxt='n',
+     xlab = '', ylab = '', main = 'Plotting symbols')
+text(x, y, labels = 0:25, adj=2, cex = 0.6)
+
+x1 = c(3:6, 1:6)
+y1 = c(5,5,5,5, rep(6, 6))
+pch = c('*', '.', 'o', 'O', '0', '+', '-', '|', '%', '#')
+points(x1, y1, pch=pch)
+text(x1, y1, labels = pch, adj = 3, cex = 0.6)
+```
+

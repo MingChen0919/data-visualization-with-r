@@ -4,13 +4,10 @@ navbar:
   title: "Data Visualization with R"
   type: inverse
   left:
-    - text: "Home"
-      icon: fa-home
-      href: index.html
     - text: "Exploring graphic parameters"
       menu:
         - text: "Plotting symbols"
-          href:
+          href: plotting-symbols.html
         - text: "Lines"
           href:
   right:
@@ -18,8 +15,8 @@ navbar:
       href: https://github.com/MingChen0919/data-visualization-with-r
 output:
   html_document:
-    theme: cosmo
-    highlight: textmate
+    theme: yeti
+    highlight: haddock
     include:
       after_body: footer.html
     
