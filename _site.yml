@@ -1,0 +1,26 @@
+name: "Data Visualization with R"
+output_dir: "docs"
+navbar:
+  title: "Data Visualization with R"
+  type: inverse
+  left:
+    - text: "Home"
+      icon: fa-home
+      href: index.html
+    - text: "Exploring graphic parameters"
+      menu:
+        - text: "Plotting symbols"
+          href:
+        - text: "Lines"
+          href:
+  right:
+    - icon: fa-github
+      href: https://github.com/MingChen0919/data-visualization-with-r
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    include:
+      after_body: footer.html
+    
+    
