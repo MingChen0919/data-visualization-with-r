@@ -1,0 +1,43 @@
+---
+title: "Colors"
+author: "Ming Chen"
+date: "6/24/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center")
+```
+
+## Colors
+
+Colors related options includes: 
+
+* `col`
+* `col.axis`
+* `col.lab`
+* `col.main`
+* `col.sub`
+* `fg`
+* `bg`
+
+```{r}
+boxplot(mtcars$mpg ~ mtcars$gear,
+        ylim = c(0, 60),
+        xlab = "gear (col.lab)",
+        ylab = "mpg (col.lab)",
+        main = "Color parameters (col.main)",
+        sub = "subtitle",
+        col = "blue",
+        col.axis = "red",
+        col.lab = "green",
+        col.main = "red",
+        col.sub = "purple",
+        fg = "brown",
+        bg = "green")
+
+text(2, 55, cex = 0.7,
+     labels = "col = blue; col.axis = red; col.lab = green; col.main = red\ncol.sub = purple")
+```
+
+

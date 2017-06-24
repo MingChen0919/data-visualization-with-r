@@ -8,8 +8,8 @@ navbar:
       menu:
         - text: "Plotting symbols"
           href: plotting-symbols.html
-        - text: "Lines"
-          href:
+        - text: "Colors"
+          href: colors.html
   right:
     - icon: fa-github
       href: https://github.com/MingChen0919/data-visualization-with-r
