@@ -10,6 +10,8 @@ navbar:
           href: plotting-symbols.html
         - text: "Colors"
           href: colors.html
+        - text: "Lines"
+          href: lines.html
   right:
     - icon: fa-github
       href: https://github.com/MingChen0919/data-visualization-with-r
