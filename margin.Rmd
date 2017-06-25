@@ -1,0 +1,26 @@
+---
+title: "Margin"
+author: "Ming Chen"
+date: "6/24/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
+```
+
+## Margin
+
+```{r fig.height=5}
+par(mar=c(4,3,2,1))
+plot(1:5, type='n', xlab = 'X', ylab = 'Y')
+box(which = "plot", col="red")
+box(which = "figure", col="blue", lwd=2)
+mtext(side = 1, text = "side 1; line 0", line = 0, col = "green")
+mtext(side = 1, text = "side 1; line 1", line = 1, col = "green")
+mtext(side = 1, text = "side 1; line 2", line = 2, col = "green")
+mtext(side = 1, text = "side 1; line 3", line = 3, col = "green")
+mtext(side = 3, text = "side 3; line 0", line = 0, col = "red")
+mtext(side = 3, text = "side 3; line 1", line = 1, col = "red")
+```
+
