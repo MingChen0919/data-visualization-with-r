@@ -27,7 +27,6 @@ plot(1:5, xlim = c(0, 6), ylim = c(0,6),
      sub = 'subtitle font = 4', font.sub = 4)
 axis(side=1, at=1:5, labels = rep('font=4', 5), font.axis = 4)
 axis(side=2, at=1:5, labels = rep('font=5', 5), font.axis = 5)
-font_families = c("serif", "sans", "mono", "symbol", "symbol")
 labels = paste0('font=', 1:5, '; family=serif')
 text(x=1:5, y=1:5 + 0.5, labels = labels, 
      font = 1:5, family = "serif")

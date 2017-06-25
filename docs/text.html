@@ -9,9 +9,10 @@
 <meta name="generator" content="pandoc" />
 
 
+<meta name="author" content="Ming Chen" />
 
 
-<title></title>
+<title>Text</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -23,6 +24,44 @@
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -202,11 +241,35 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">Text</h1>
+<h4 class="author"><em>Ming Chen</em></h4>
+<h4 class="date"><em>6/24/2017</em></h4>
 
 </div>
 
 
-
+<div id="text" class="section level2">
+<h2>Text</h2>
+<ul>
+<li><code>cex</code></li>
+<li><code>cex.axis</code></li>
+<li><code>cex.lab</code></li>
+<li><code>cex.main</code></li>
+<li><code>cex.sub</code></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">6</span>), 
+     <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">yaxt =</span> <span class="st">&#39;n&#39;</span>,
+     <span class="dt">xlab =</span> <span class="st">&#39;xlab cex = 1.2&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;ylab cex = 1.2&#39;</span>,
+     <span class="dt">cex.lab =</span> <span class="fl">1.2</span>,
+     <span class="dt">main =</span> <span class="st">&#39;Main title cex = 2&#39;</span>, <span class="dt">cex.main =</span> <span class="dv">2</span>,
+     <span class="dt">sub =</span> <span class="st">&#39;subtitle cex = 0.5&#39;</span>, <span class="dt">cex.sub =</span> <span class="fl">0.5</span>)
+<span class="kw">axis</span>(<span class="dt">side=</span><span class="dv">1</span>, <span class="dt">at=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">labels =</span> <span class="kw">rep</span>(<span class="st">&#39;cex=0.5&#39;</span>, <span class="dv">5</span>), <span class="dt">cex.axis =</span> <span class="fl">0.5</span>)
+<span class="kw">axis</span>(<span class="dt">side=</span><span class="dv">2</span>, <span class="dt">at=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">labels =</span> <span class="kw">rep</span>(<span class="st">&#39;cex=0.5&#39;</span>, <span class="dv">5</span>), <span class="dt">cex.axis =</span> <span class="fl">0.5</span>)
+labels =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;cex=&#39;</span>, (<span class="dv">1</span>:<span class="dv">5</span>)/<span class="dv">10</span>)
+<span class="kw">text</span>(<span class="dt">x=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">y=</span><span class="dv">1</span>:<span class="dv">5</span> +<span class="st"> </span><span class="fl">0.5</span>, <span class="dt">labels =</span> labels, 
+     <span class="dt">cex =</span> (<span class="dv">1</span>:<span class="dv">5</span>)/<span class="dv">10</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>)</code></pre></div>
+<p><img src="text_files/figure-html/unnamed-chunk-1-1.png" width="768" style="display: block; margin: auto;" /></p>
+</div>
 
 <center>Copyright &copy; 2017 Ming Chen. All rights reserved.</center>
 
