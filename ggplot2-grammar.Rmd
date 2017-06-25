@@ -1,0 +1,48 @@
+---
+title: "ggplot2 Grammar"
+author: "Ming Chen"
+date: "6/25/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
+library(ggplot2)
+```
+
+## The grammar of ggplot2 plots
+
+The following ggplot template comes from the book ***[R for Data Science](http://r4ds.had.co.nz/)*** by Garrett Grolemund & Hadley Wickham.
+
+```
+ggplot(data = <DATA>) + 
+  <GEOM_FUNCTION>(
+     mapping = aes(<MAPPINGS>),
+     stat = <STAT>, 
+     position = <POSITION>
+  ) +
+  <COORDINATE_FUNCTION> +
+  <FACET_FUNCTION>
+```
+
+Each ggplot2 plot is a combination use of seven parameters as you can in the template.
+
+* `DATA`: contains values presented on a plot.
+* `MAPPINGS`: determines how values are mapped to plot elements.
+* `STAT`: the rule of transforming original values to new values and then mapping new values to plot elements. 
+* `POSITION`: arranges locations of observations presented on a plot.
+* `COORDINATE_FUNCTION`: provides several different coordinate systems.
+* `FACET_FUNCTION`: split plot into facets.
+
+## Examples
+
+```{r}
+ggplot(data = mtcars) +                           
+  geom_point(mapping = aes(x = mpg, y = disp),  
+             stat = 'identity',
+             position = 'identity') +
+  coord_cartesian() + 
+  facet_grid(~am)
+```
+
+
