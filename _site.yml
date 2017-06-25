@@ -16,6 +16,8 @@ navbar:
           href: fonts.html
         - text: "Text"
           href: text.html
+        - text: "Margin"
+          href: margin.html
   right:
     - icon: fa-github
       href: https://github.com/MingChen0919/data-visualization-with-r

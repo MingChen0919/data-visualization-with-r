@@ -1,0 +1,48 @@
+---
+title: "Multiple plots"
+author: "Ming Chen"
+date: "6/24/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
+```
+
+## Multiple plots
+
+* `mfrow`
+* `mfcol`
+
+```{r}
+par(mfrow=c(3,1))
+plot(mtcars$mpg~mtcars$disp, main="plot 1")
+hist(mtcars$disp, main="plot 2")
+boxplot(mtcars$mpg~mtcars$am, main="plot 3")
+```
+
+```{r}
+par(mfcol=c(1,3))
+plot(mtcars$mpg~mtcars$disp, main="plot 1")
+hist(mtcars$disp, main="plot 2")
+boxplot(mtcars$mpg~mtcars$am, main="plot 3")
+```
+
+## Merge plot areas
+
+* `layout`
+
+```{r}
+mat = matrix(c(1,1,2,3), nrow=2, byrow=FALSE)
+mat
+```
+
+**The numbers in the matrix define the plotting areas for each plot.**
+
+```{r}
+layout(mat = mat)
+plot(mtcars$mpg~mtcars$disp, main="plot 1")
+hist(mtcars$disp, main="plot 2")
+boxplot(mtcars$mpg~mtcars$am, main="plot 3")
+```
+

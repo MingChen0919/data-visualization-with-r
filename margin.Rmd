@@ -11,6 +11,8 @@ knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
 
 ## Margin
 
+* `mar`
+
 ```{r fig.height=5}
 par(mar=c(4,3,2,1))
 plot(1:5, type='n', xlab = 'X', ylab = 'Y')
