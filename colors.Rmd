@@ -22,6 +22,8 @@ Colors related options includes:
 * `bg`
 
 ```{r}
+par(bg="gray")
+par(fg="yellow")
 boxplot(mtcars$mpg ~ mtcars$gear,
         ylim = c(0, 60),
         xlab = "gear (col.lab)",
@@ -32,12 +34,9 @@ boxplot(mtcars$mpg ~ mtcars$gear,
         col.axis = "red",
         col.lab = "green",
         col.main = "red",
-        col.sub = "purple",
-        fg = "brown",
-        bg = "green")
-
+        col.sub = "purple")
 text(2, 55, cex = 0.7,
-     labels = "col = blue; col.axis = red; col.lab = green; col.main = red\ncol.sub = purple")
+     labels = "col = blue; col.axis = red; col.lab = green; col.main = red\ncol.sub = purple; par(fg='yellow'); par(bg='gray')")
 ```
 
 
