@@ -274,6 +274,7 @@ $(document).ready(function () {
 <li><a href="#geom_abline-geom_hline-and-geom_vline"><code>geom_abline</code>, <code>geom_hline</code> and <code>geom_vline</code></a></li>
 <li><a href="#geom_bar-and-geom_col"><code>geom_bar</code> and <code>geom_col</code></a></li>
 <li><a href="#geom_bind2d"><code>geom_bind2d</code></a></li>
+<li><a href="#geom_boxplot"><code>geom_boxplot</code></a></li>
 </ul></li>
 </ul>
 </div>
@@ -336,6 +337,32 @@ $(document).ready(function () {
 <span class="st">  </span><span class="kw">geom_bin2d</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>manufacturer, <span class="dt">y=</span>displ)) +
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>))</code></pre></div>
 <p><img src="geom-layer_files/figure-html/unnamed-chunk-3-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="geom_boxplot" class="section level2">
+<h2><code>geom_boxplot</code></h2>
+<ul>
+<li><code>geom_boxplot</code> uses <code>stat_boxplot</code> to convert y into <code>lower</code>, <code>upper</code>, <code>middle</code>, <code>ymin</code> and <code>ymax</code>.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) +
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>manufacturer, <span class="dt">y=</span>displ, <span class="dt">fill=</span>fl)) +
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle =</span> <span class="dv">90</span>))</code></pre></div>
+<p><img src="geom-layer_files/figure-html/unnamed-chunk-4-1.png" width="672" style="display: block; margin: auto;" /></p>
+<ul>
+<li>Let’s see an example of using <code>stat_identity</code>, which doesn’t transform the data.</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">my_data =<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">x =</span> LETTERS[<span class="dv">1</span>:<span class="dv">3</span>],
+                     <span class="dt">ymin =</span> <span class="kw">sample</span>(<span class="dv">1</span>:<span class="dv">10</span>,<span class="dv">3</span>),
+                     <span class="dt">lower =</span> <span class="kw">sample</span>(<span class="dv">11</span>:<span class="dv">20</span>, <span class="dv">3</span>),
+                     <span class="dt">middle =</span> <span class="kw">sample</span>(<span class="dv">21</span>:<span class="dv">30</span>, <span class="dv">3</span>),
+                     <span class="dt">upper =</span> <span class="kw">sample</span>(<span class="dv">31</span>:<span class="dv">40</span>, <span class="dv">3</span>),
+                     <span class="dt">ymax =</span> <span class="kw">sample</span>(<span class="dv">41</span>:<span class="dv">50</span>, <span class="dv">3</span>),
+                     <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;a&#39;</span>))
+<span class="kw">ggplot</span>(<span class="dt">data =</span> my_data) +
+<span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">ymin=</span>ymin, <span class="dt">lower=</span>lower, 
+                             <span class="dt">middle=</span>middle, <span class="dt">upper=</span>upper, <span class="dt">ymax=</span>ymax,
+                             <span class="dt">fill =</span> class),
+               <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
+<p><img src="geom-layer_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 
