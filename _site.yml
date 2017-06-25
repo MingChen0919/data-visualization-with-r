@@ -24,6 +24,8 @@ navbar:
       menu:
         - text: "ggplot grammar"
           href: ggplot2-grammar.html
+        - text: "Geom layer"
+          href: geom-layer.html
   right:
     - icon: fa-github
       href: https://github.com/MingChen0919/data-visualization-with-r
