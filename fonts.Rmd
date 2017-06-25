@@ -1,0 +1,35 @@
+---
+title: "Fonts"
+author: "Ming Chen"
+date: "6/24/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
+```
+
+## Fonts
+
+* `font`
+* `font.axis`
+* `font.lab`
+* `font.main`
+* `font.sub`
+* `family`
+
+```{r fig.width=8, fig.height=8}
+plot(1:5, xlim = c(0, 6), ylim = c(0,6), 
+     xaxt = 'n', yaxt = 'n',
+     xlab = 'xlab font = 5', ylab = 'ylab font = 5',
+     font.lab = 5,
+     main = 'Main title font = 3', font.main = 3,
+     sub = 'subtitle font = 4', font.sub = 4)
+axis(side=1, at=1:5, labels = rep('font=4', 5), font.axis = 4)
+axis(side=2, at=1:5, labels = rep('font=5', 5), font.axis = 5)
+font_families = c("serif", "sans", "mono", "symbol", "symbol")
+labels = paste0('font=', 1:5, '; family=serif')
+text(x=1:5, y=1:5 + 0.5, labels = labels, 
+     font = 1:5, family = "serif")
+```
+

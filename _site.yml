@@ -12,6 +12,8 @@ navbar:
           href: colors.html
         - text: "Lines"
           href: lines.html
+        - text: "Fonts"
+          href: fonts.html
   right:
     - icon: fa-github
       href: https://github.com/MingChen0919/data-visualization-with-r
