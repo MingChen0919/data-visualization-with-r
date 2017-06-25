@@ -355,12 +355,10 @@ $(document).ready(function () {
                      <span class="dt">lower =</span> <span class="kw">sample</span>(<span class="dv">11</span>:<span class="dv">20</span>, <span class="dv">3</span>),
                      <span class="dt">middle =</span> <span class="kw">sample</span>(<span class="dv">21</span>:<span class="dv">30</span>, <span class="dv">3</span>),
                      <span class="dt">upper =</span> <span class="kw">sample</span>(<span class="dv">31</span>:<span class="dv">40</span>, <span class="dv">3</span>),
-                     <span class="dt">ymax =</span> <span class="kw">sample</span>(<span class="dv">41</span>:<span class="dv">50</span>, <span class="dv">3</span>),
-                     <span class="dt">class =</span> <span class="kw">c</span>(<span class="st">&#39;a&#39;</span>, <span class="st">&#39;b&#39;</span>, <span class="st">&#39;a&#39;</span>))
+                     <span class="dt">ymax =</span> <span class="kw">sample</span>(<span class="dv">41</span>:<span class="dv">50</span>, <span class="dv">3</span>))
 <span class="kw">ggplot</span>(<span class="dt">data =</span> my_data) +
 <span class="st">  </span><span class="kw">geom_boxplot</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>x, <span class="dt">ymin=</span>ymin, <span class="dt">lower=</span>lower, 
-                             <span class="dt">middle=</span>middle, <span class="dt">upper=</span>upper, <span class="dt">ymax=</span>ymax,
-                             <span class="dt">fill =</span> class),
+                             <span class="dt">middle=</span>middle, <span class="dt">upper=</span>upper, <span class="dt">ymax=</span>ymax),
                <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
 <p><img src="geom-layer_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
 </div>
