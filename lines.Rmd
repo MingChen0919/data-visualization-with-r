@@ -1,0 +1,32 @@
+---
+title: "Lines"
+author: "Ming Chen"
+date: "6/24/2017"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, fig.align = 'center')
+```
+
+## Lines
+
+* `lty`
+* `lwd`
+
+```{r}
+x = rep(1:2, each=6)
+y = c(seq(1,12,2), seq(1,12,2))
+plot(x, y, xaxt='n', yaxt='n', 
+     ylim=c(-1, 13), pch=16,
+     xlab='', ylab='')
+segments(x[1:6], y[1:6], x[7:12], y[7:12], lty = 1:6, lwd=1:6)
+labels = c('lty=1, lwd=1',
+           'lty=2, lwd=2',
+           'lty=3, lwd=3',
+           'lty=4, lwd=4',
+           'lty=5, lwd=5',
+           'lty=6, lwd=6')
+text(x = rep(1.5, 6), y = seq(1,12,2)+0.5, labels = labels, col = "blue")
+```
+
