@@ -254,6 +254,10 @@ $(document).ready(function () {
   <ul class="dropdown-menu" role="menu">
     <li class="dropdown-header">plot.ly</li>
     <li class="dropdown-header">D3</li>
+    <li class="divider"></li>
+    <li>
+      <a href="d3-treemap.html">D3 Treemap</a>
+    </li>
     <li class="dropdown-header">Highchart</li>
     <li class="dropdown-header">More...</li>
   </ul>
@@ -288,6 +292,7 @@ $(document).ready(function () {
 <li><a href="#geom_bar-and-geom_col"><code>geom_bar</code> and <code>geom_col</code></a></li>
 <li><a href="#geom_bind2d"><code>geom_bind2d</code></a></li>
 <li><a href="#geom_boxplot"><code>geom_boxplot</code></a></li>
+<li><a href="#geom_density_2d"><code>geom_density_2d</code></a></li>
 </ul></li>
 </ul>
 </div>
@@ -374,6 +379,15 @@ $(document).ready(function () {
                              <span class="dt">middle=</span>middle, <span class="dt">upper=</span>upper, <span class="dt">ymax=</span>ymax),
                <span class="dt">stat =</span> <span class="st">&quot;identity&quot;</span>)</code></pre></div>
 <p><img src="geom-layer_files/figure-html/unnamed-chunk-5-1.png" width="480" style="display: block; margin: auto;" /></p>
+</div>
+<div id="geom_density_2d" class="section level2">
+<h2><code>geom_density_2d</code></h2>
+<p>The 2d density is the density of a combination of (x, y). The density is estimated with the <code>MASS::kde2d</code> function. Points on the same contour line have the same existing probability of the estimated jointed distribution.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> faithful) +
+<span class="st">  </span><span class="kw">geom_density_2d</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>waiting, <span class="dt">y=</span>eruptions),
+                  <span class="dt">stat =</span> <span class="st">&#39;density_2d&#39;</span>) +
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x=</span>waiting, <span class="dt">y=</span>eruptions))</code></pre></div>
+<p><img src="geom-layer_files/figure-html/unnamed-chunk-6-1.png" width="384" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 

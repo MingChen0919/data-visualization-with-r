@@ -100,3 +100,16 @@ ggplot(data = my_data) +
   
 ```
 
+
+## `geom_density_2d`
+
+The 2d density is the density of a combination of (x, y). The density is estimated with the `MASS::kde2d` function. Points on the same contour line have the same existing probability of the estimated jointed distribution.
+
+```{r fig.width=4, fig.height=4}
+ggplot(data = faithful) +
+  geom_density_2d(mapping = aes(x=waiting, y=eruptions),
+                  stat = 'density_2d') +
+  geom_point(mapping = aes(x=waiting, y=eruptions))
+```
+
+

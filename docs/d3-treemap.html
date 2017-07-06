@@ -12,7 +12,7 @@
 <meta name="author" content="Ming Chen" />
 
 
-<title>Fonts</title>
+<title>D3 Treemap</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -24,44 +24,6 @@
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #0000ff; } /* Keyword */
-code > span.ch { color: #008080; } /* Char */
-code > span.st { color: #008080; } /* String */
-code > span.co { color: #008000; } /* Comment */
-code > span.ot { color: #ff4000; } /* Other */
-code > span.al { color: #ff0000; } /* Alert */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #008000; font-weight: bold; } /* Warning */
-code > span.cn { } /* Constant */
-code > span.sc { color: #008080; } /* SpecialChar */
-code > span.vs { color: #008080; } /* VerbatimString */
-code > span.ss { color: #008080; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { } /* Variable */
-code > span.cf { color: #0000ff; } /* ControlFlow */
-code > span.op { } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #ff4000; } /* Preprocessor */
-code > span.do { color: #008000; } /* Documentation */
-code > span.an { color: #008000; } /* Annotation */
-code > span.cv { color: #008000; } /* CommentVar */
-code > span.at { } /* Attribute */
-code > span.in { color: #008000; } /* Information */
-</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 
 
 <style type="text/css">
@@ -279,36 +241,111 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Fonts</h1>
+<h1 class="title toc-ignore">D3 Treemap</h1>
 <h4 class="author"><em>Ming Chen</em></h4>
-<h4 class="date"><em>6/24/2017</em></h4>
+<h4 class="date"><em>7/5/2017</em></h4>
 
 </div>
 
 
-<div id="fonts" class="section level2">
-<h2>Fonts</h2>
-<ul>
-<li><code>font</code></li>
-<li><code>font.axis</code></li>
-<li><code>font.lab</code></li>
-<li><code>font.main</code></li>
-<li><code>font.sub</code></li>
-<li><code>family</code></li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">xlim =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="dv">6</span>), <span class="dt">ylim =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">6</span>), 
-     <span class="dt">xaxt =</span> <span class="st">&#39;n&#39;</span>, <span class="dt">yaxt =</span> <span class="st">&#39;n&#39;</span>,
-     <span class="dt">xlab =</span> <span class="st">&#39;xlab font = 5&#39;</span>, <span class="dt">ylab =</span> <span class="st">&#39;ylab font = 5&#39;</span>,
-     <span class="dt">font.lab =</span> <span class="dv">5</span>,
-     <span class="dt">main =</span> <span class="st">&#39;Main title font = 3&#39;</span>, <span class="dt">font.main =</span> <span class="dv">3</span>,
-     <span class="dt">sub =</span> <span class="st">&#39;subtitle font = 4&#39;</span>, <span class="dt">font.sub =</span> <span class="dv">4</span>)
-<span class="kw">axis</span>(<span class="dt">side=</span><span class="dv">1</span>, <span class="dt">at=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">labels =</span> <span class="kw">rep</span>(<span class="st">&#39;font=4&#39;</span>, <span class="dv">5</span>), <span class="dt">font.axis =</span> <span class="dv">4</span>)
-<span class="kw">axis</span>(<span class="dt">side=</span><span class="dv">2</span>, <span class="dt">at=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">labels =</span> <span class="kw">rep</span>(<span class="st">&#39;font=5&#39;</span>, <span class="dv">5</span>), <span class="dt">font.axis =</span> <span class="dv">5</span>)
-labels =<span class="st"> </span><span class="kw">paste0</span>(<span class="st">&#39;font=&#39;</span>, <span class="dv">1</span>:<span class="dv">5</span>, <span class="st">&#39;; family=serif&#39;</span>)
-<span class="kw">text</span>(<span class="dt">x=</span><span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">y=</span><span class="dv">1</span>:<span class="dv">5</span> +<span class="st"> </span><span class="fl">0.5</span>, <span class="dt">labels =</span> labels, 
-     <span class="dt">font =</span> <span class="dv">1</span>:<span class="dv">5</span>, <span class="dt">family =</span> <span class="st">&quot;serif&quot;</span>)</code></pre></div>
-<p><img src="fonts_files/figure-html/unnamed-chunk-1-1.png" width="768" style="display: block; margin: auto;" /></p>
-</div>
+<script src="https://d3js.org/d3.v4.min.js"></script>
+<svg width="960" height="570">
+</svg>
+<style type="text/css">
+form {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+svg {
+  font: 10px sans-serif;
+}
+</style>
+<script type="text/javascript">
+console.log()
+var svg = d3.select("svg"),
+    width = +svg.attr("width"),
+    height = +svg.attr("height");
+
+var fader = function(color) { return d3.interpolateRgb(color, "#fff")(0.2); },
+    color = d3.scaleOrdinal(d3.schemeCategory20.map(fader)),
+    format = d3.format(",d");
+
+var treemap = d3.treemap()
+    .tile(d3.treemapResquarify)
+    .size([width, height])
+    .round(true)
+    .paddingInner(1);
+
+d3.json("data/flare.json", function(error, data) {
+  if (error) throw error;
+
+  var root = d3.hierarchy(data)
+      .eachBefore(function(d) { d.data.id = (d.parent ? d.parent.data.id + "." : "") + d.data.name; })
+      .sum(sumBySize)
+      .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
+
+  treemap(root);
+
+  var cell = svg.selectAll("g")
+    .data(root.leaves())
+    .enter().append("g")
+      .attr("transform", function(d) { return "translate(" + d.x0 + "," + d.y0 + ")"; });
+
+  cell.append("rect")
+      .attr("id", function(d) { return d.data.id; })
+      .attr("width", function(d) { return d.x1 - d.x0; })
+      .attr("height", function(d) { return d.y1 - d.y0; })
+      .attr("fill", function(d) { return color(d.parent.data.id); });
+
+  cell.append("clipPath")
+      .attr("id", function(d) { return "clip-" + d.data.id; })
+    .append("use")
+      .attr("xlink:href", function(d) { return "#" + d.data.id; });
+
+  cell.append("text")
+      .attr("clip-path", function(d) { return "url(#clip-" + d.data.id + ")"; })
+    .selectAll("tspan")
+      .data(function(d) { return d.data.name.split(/(?=[A-Z][^A-Z])/g); })
+    .enter().append("tspan")
+      .attr("x", 4)
+      .attr("y", function(d, i) { return 13 + i * 10; })
+      .text(function(d) { return d; });
+
+  cell.append("title")
+      .text(function(d) { return d.data.id + "\n" + format(d.value); });
+
+  d3.selectAll("input")
+      .data([sumBySize, sumByCount], function(d) { return d ? d.name : this.value; })
+      .on("change", changed);
+
+  var timeout = d3.timeout(function() {
+    d3.select("input[value=\"sumByCount\"]")
+        .property("checked", true)
+        .dispatch("change");
+  }, 2000);
+
+  function changed(sum) {
+    timeout.stop();
+
+    treemap(root.sum(sum));
+
+    cell.transition()
+        .duration(750)
+        .attr("transform", function(d) { return "translate(" + d.x0 + "," + d.y0 + ")"; })
+      .select("rect")
+        .attr("width", function(d) { return d.x1 - d.x0; })
+        .attr("height", function(d) { return d.y1 - d.y0; });
+  }
+});
+
+function sumByCount(d) {
+  return d.children ? 0 : 1;
+}
+
+function sumBySize(d) {
+  return d.size;
+}
+</script>
 
 <center>Copyright &copy; 2017 Ming Chen. All rights reserved.</center>
 

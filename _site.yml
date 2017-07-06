@@ -31,7 +31,9 @@ navbar:
         - text: "plot.ly"
           href:
         - text: "D3"
-          href:
+        - text: "-------"
+        - text: "D3 Treemap"
+          href: d3-treemap.html
         - text: "Highchart"
           href:
         - text: "More..."
