@@ -24,6 +24,44 @@
 <link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #0000ff; } /* Keyword */
+code > span.ch { color: #008080; } /* Char */
+code > span.st { color: #008080; } /* String */
+code > span.co { color: #008000; } /* Comment */
+code > span.ot { color: #ff4000; } /* Other */
+code > span.al { color: #ff0000; } /* Alert */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #008000; font-weight: bold; } /* Warning */
+code > span.cn { } /* Constant */
+code > span.sc { color: #008080; } /* SpecialChar */
+code > span.vs { color: #008080; } /* VerbatimString */
+code > span.ss { color: #008080; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { } /* Variable */
+code > span.cf { color: #0000ff; } /* ControlFlow */
+code > span.op { } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #ff4000; } /* Preprocessor */
+code > span.do { color: #008000; } /* Documentation */
+code > span.an { color: #008000; } /* Annotation */
+code > span.cv { color: #008000; } /* CommentVar */
+code > span.at { } /* Attribute */
+code > span.in { color: #008000; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -209,18 +247,14 @@ $(document).ready(function () {
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Interactive plots
+    D3 plots
      
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
-    <li class="dropdown-header">plot.ly</li>
-    <li class="dropdown-header">D3</li>
-    <li class="divider"></li>
     <li>
-      <a href="d3-treemap.html">D3 Treemap</a>
+      <a href="d3-treemap.html">Treemap</a>
     </li>
-    <li class="dropdown-header">Highchart</li>
     <li class="dropdown-header">More...</li>
   </ul>
 </li>
@@ -260,8 +294,16 @@ svg {
   font: 10px sans-serif;
 }
 </style>
+<form>
+<label>
+<input type="radio" name="mode" value="sumBySize" checked="TRUE">Size</input>
+</label>
+<label>
+<input type="radio" name="mode" value="sumByCount">Count</input>
+</label>
+</form>
+<p>A treemap recursively subdivides area into rectangles; the area of any node in the tree corresponds to its value. This example uses color to encode different packages of the Flare visualization toolkit. Treemap design invented by <a href="http://www.cs.umd.edu/~ben/">Ben Shneiderman</a>. Squarified algorithm by <a href="http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.36.6685">Bruls, Huizing and van Wijk</a>. Data courtesy <a href="http://flare.prefuse.org/">Jeff Heer</a>.</p>
 <script type="text/javascript">
-console.log()
 var svg = d3.select("svg"),
     width = +svg.attr("width"),
     height = +svg.attr("height");
@@ -346,6 +388,137 @@ function sumBySize(d) {
   return d.size;
 }
 </script>
+<hr />
+<div id="treemap" class="section level1">
+<h1>Treemap</h1>
+<p>This is an example of generating the same <a href="https://bl.ocks.org/mbostock/4063582">Treemap</a> in R markdown by integrating <code>CSS</code>, <code>Javascript</code>, <code>R script</code> and <code>R markdown</code> into a single R markdown document.</p>
+</div>
+<div id="render-css" class="section level1">
+<h1>Render CSS</h1>
+<pre><code>form {
+  font-family: &quot;Helvetica Neue&quot;, Helvetica, Arial, sans-serif;
+}
+
+svg {
+  font: 10px sans-serif;
+}</code></pre>
+</div>
+<div id="render-radio-buttons" class="section level1">
+<h1>Render radio buttons</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add radio buttons</span>
+input_1 =<span class="st"> </span>tags$<span class="kw">input</span>(<span class="st">&#39;Size&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">tagAppendAttributes</span>(
+    <span class="dt">type=</span><span class="st">&quot;radio&quot;</span>,
+    <span class="dt">name=</span><span class="st">&quot;mode&quot;</span>,
+    <span class="dt">value=</span><span class="st">&quot;sumBySize&quot;</span>,
+    <span class="dt">checked=</span><span class="ot">TRUE</span>
+  )
+input_2 =<span class="st"> </span>tags$<span class="kw">input</span>(<span class="st">&#39;Count&#39;</span>) %&gt;%<span class="st"> </span>
+<span class="st">  </span><span class="kw">tagAppendAttributes</span>(
+    <span class="dt">type=</span><span class="st">&quot;radio&quot;</span>,
+    <span class="dt">name=</span><span class="st">&quot;mode&quot;</span>,
+    <span class="dt">value=</span><span class="st">&quot;sumByCount&quot;</span>
+  )
+tags$<span class="kw">form</span>(
+  <span class="kw">list</span>(tags$<span class="kw">label</span>(input_1), tags$<span class="kw">label</span>(input_2))
+)</code></pre></div>
+</div>
+<div id="add-text" class="section level1">
+<h1>Add text</h1>
+<pre><code>A treemap recursively subdivides area into rectangles; the area of any node in the tree corresponds to its value. This example uses color to encode different packages of the Flare visualization toolkit. Treemap design invented by [Ben Shneiderman](http://www.cs.umd.edu/~ben/). Squarified algorithm by [Bruls, Huizing and van Wijk](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.36.6685). Data courtesy [Jeff Heer](http://flare.prefuse.org/).</code></pre>
+</div>
+<div id="attach-d3.min.js" class="section level1">
+<h1>Attach d3.min.js</h1>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># add d3 min js</span>
+d3_min_js =<span class="st"> </span>tags$<span class="kw">script</span>() %&gt;%
+<span class="st">  </span><span class="kw">tagAppendAttributes</span>(<span class="dt">src=</span><span class="st">&#39;https://d3js.org/d3.v4.min.js&#39;</span>)</code></pre></div>
+</div>
+<div id="add-plotting-javascript" class="section level1">
+<h1>Add plotting Javascript</h1>
+<pre><code>var svg = d3.select(&quot;svg&quot;),
+    width = +svg.attr(&quot;width&quot;),
+    height = +svg.attr(&quot;height&quot;);
+
+var fader = function(color) { return d3.interpolateRgb(color, &quot;#fff&quot;)(0.2); },
+    color = d3.scaleOrdinal(d3.schemeCategory20.map(fader)),
+    format = d3.format(&quot;,d&quot;);
+
+var treemap = d3.treemap()
+    .tile(d3.treemapResquarify)
+    .size([width, height])
+    .round(true)
+    .paddingInner(1);
+
+d3.json(&quot;data/flare.json&quot;, function(error, data) {
+  if (error) throw error;
+
+  var root = d3.hierarchy(data)
+      .eachBefore(function(d) { d.data.id = (d.parent ? d.parent.data.id + &quot;.&quot; : &quot;&quot;) + d.data.name; })
+      .sum(sumBySize)
+      .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
+
+  treemap(root);
+
+  var cell = svg.selectAll(&quot;g&quot;)
+    .data(root.leaves())
+    .enter().append(&quot;g&quot;)
+      .attr(&quot;transform&quot;, function(d) { return &quot;translate(&quot; + d.x0 + &quot;,&quot; + d.y0 + &quot;)&quot;; });
+
+  cell.append(&quot;rect&quot;)
+      .attr(&quot;id&quot;, function(d) { return d.data.id; })
+      .attr(&quot;width&quot;, function(d) { return d.x1 - d.x0; })
+      .attr(&quot;height&quot;, function(d) { return d.y1 - d.y0; })
+      .attr(&quot;fill&quot;, function(d) { return color(d.parent.data.id); });
+
+  cell.append(&quot;clipPath&quot;)
+      .attr(&quot;id&quot;, function(d) { return &quot;clip-&quot; + d.data.id; })
+    .append(&quot;use&quot;)
+      .attr(&quot;xlink:href&quot;, function(d) { return &quot;#&quot; + d.data.id; });
+
+  cell.append(&quot;text&quot;)
+      .attr(&quot;clip-path&quot;, function(d) { return &quot;url(#clip-&quot; + d.data.id + &quot;)&quot;; })
+    .selectAll(&quot;tspan&quot;)
+      .data(function(d) { return d.data.name.split(/(?=[A-Z][^A-Z])/g); })
+    .enter().append(&quot;tspan&quot;)
+      .attr(&quot;x&quot;, 4)
+      .attr(&quot;y&quot;, function(d, i) { return 13 + i * 10; })
+      .text(function(d) { return d; });
+
+  cell.append(&quot;title&quot;)
+      .text(function(d) { return d.data.id + &quot;\n&quot; + format(d.value); });
+
+  d3.selectAll(&quot;input&quot;)
+      .data([sumBySize, sumByCount], function(d) { return d ? d.name : this.value; })
+      .on(&quot;change&quot;, changed);
+
+  var timeout = d3.timeout(function() {
+    d3.select(&quot;input[value=\&quot;sumByCount\&quot;]&quot;)
+        .property(&quot;checked&quot;, true)
+        .dispatch(&quot;change&quot;);
+  }, 2000);
+
+  function changed(sum) {
+    timeout.stop();
+
+    treemap(root.sum(sum));
+
+    cell.transition()
+        .duration(750)
+        .attr(&quot;transform&quot;, function(d) { return &quot;translate(&quot; + d.x0 + &quot;,&quot; + d.y0 + &quot;)&quot;; })
+      .select(&quot;rect&quot;)
+        .attr(&quot;width&quot;, function(d) { return d.x1 - d.x0; })
+        .attr(&quot;height&quot;, function(d) { return d.y1 - d.y0; });
+  }
+});
+
+function sumByCount(d) {
+  return d.children ? 0 : 1;
+}
+
+function sumBySize(d) {
+  return d.size;
+}</code></pre>
+</div>
 
 <center>Copyright &copy; 2017 Ming Chen. All rights reserved.</center>
 

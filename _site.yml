@@ -26,16 +26,10 @@ navbar:
           href: ggplot2-grammar.html
         - text: "Geom layer"
           href: geom-layer.html
-    - text: "Interactive plots"
+    - text: "D3 plots"
       menu:
-        - text: "plot.ly"
-          href:
-        - text: "D3"
-        - text: "-------"
-        - text: "D3 Treemap"
+        - text: "Treemap"
           href: d3-treemap.html
-        - text: "Highchart"
-          href:
         - text: "More..."
   right:
     - icon: fa-github
